@@ -18,7 +18,7 @@ module.exports = function(scope){
 
     for(var key in moment.fn){
         if(
-            typeof moment.fn !== 'function' ||
+            typeof moment.fn[key] !== 'function' ||
             key === 'valueOf' ||
             key === 'toString'
         ){
