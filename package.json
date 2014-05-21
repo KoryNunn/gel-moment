@@ -1,0 +1,19 @@
+{
+  "name": "gel-moment",
+  "version": "0.0.0",
+  "description": "moment functions for gel",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/KoryNunn/gel-moment.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KoryNunn/gel-moment/issues"
+  },
+  "homepage": "https://github.com/KoryNunn/gel-moment"
+}
