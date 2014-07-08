@@ -1,5 +1,9 @@
 var moment = require('moment');
 
+function memoise(){
+
+}
+
 module.exports = function(scope){
     scope.date = function(scope, args){
         var all = args.all();
@@ -7,13 +11,25 @@ module.exports = function(scope){
     };
 
     function createMomentFunction(key){
-        return function(scope, args){
+        var fn = function(scope, args){
             var all = args.all(),
-                momentDate = moment(all.shift()),
-                result = momentDate[key].apply(momentDate, all);
+                dateArg = all.shift(),
+                momentDate;
+
+            if(fn._memoisedDates[''+dateArg]){
+                momentDate = fn._memoisedDates[''+dateArg].clone();
+            }else{
+                momentDate = fn._memoisedDates[''+dateArg] = moment(dateArg);
+            }
+
+            var result = momentDate[key].apply(momentDate, all);
 
             return moment.isMoment(result) ? result._d : result;
         };
+
+        fn._memoisedDates = {};
+
+        return fn;
     }
 
     for(var key in moment.fn){
