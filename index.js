@@ -16,7 +16,7 @@ module.exports = function(scope){
     function createMomentFunction(key){
         var fn = function(scope, args){
             var all = args.all(),
-                dateArg = all.shift(),
+                dateArg = all.shift();
 
             momentInstance._d = new Date(dateArg);
 
