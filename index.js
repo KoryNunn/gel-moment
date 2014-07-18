@@ -3,6 +3,9 @@ var moment = require('moment');
 module.exports = function(scope){
     scope.date = function(scope, args){
         var all = args.all();
+        if(all.length === 1){
+            all = all.pop();
+        }
         return moment(all)._d;
     };
 
