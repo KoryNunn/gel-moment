@@ -24,6 +24,7 @@ module.exports = function(scope){
                 dateArg = all.shift();
 
             momentInstance._d = new Date(dateArg);
+            momentInstance._isValid = null;
 
             var result = momentInstance[key].apply(momentInstance, all);
 
